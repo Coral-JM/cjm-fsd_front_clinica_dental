@@ -21,9 +21,18 @@ export const Header = () => {
                 )
 
                 : (
-                    <div className="linksDesign">
-                        <div className="headerLink" onClick={()=>navigate("/login")}>Login</div>
-                        <div className="headerLink" onClick={()=>navigate("/register")}>Register</div>
+
+                    <div className="navbarLinks">
+                        <div className="navLinks">
+                        <div className="webLinks" onClick={()=>navigate("/home")}>H O M E</div>
+                        <div className="webLinks" onClick={()=>navigate("/tratamientos")}>Tratamientos</div>
+                        <div className="webLinks" onClick={()=>navigate("/pidecita")}>pide tu cita</div>
+                        </div>
+                        
+                        <div className="submitLinks">
+                        <div className="userForms" onClick={()=>navigate("/login")}>Login</div>
+                        <div className="userForms" onClick={()=>navigate("/register")}>Register</div>
+                        </div>
                     </div>
                 )
                        
