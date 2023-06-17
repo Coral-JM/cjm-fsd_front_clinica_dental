@@ -1,14 +1,51 @@
 
 .homeDesign {
 
-    height: 85vh;
+    height: 90vh;
     width: 100vw;
 
     background-color: #f8f1ee;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     /* flex-wrap: wrap; */
     /* flex-direction: row; */
+}
+
+@font-face {
+    font-family: "Rantera";
+    src: url(../../fonts/Rantera.otf) format('opentype');
+}
+@font-face {
+    font-family: "Otama";
+    src: url(../../fonts/Otama-ep.otf) format('opentype');
+}
+.tittle {
+    font-family: "Rantera";
+    font-size: 3em;
+    color: #15aabf;
+    display: flex;
+    justify-content: center;
+    margin-top: -4em;
+    
+}
+.textOne {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-top: 10em;
+    margin-left: 17em;
+}
+.tittleTwo{
+    font-family: "Otama";
+    font-size: 5em;
+    margin-top: -0.3em;
+}
+.subtittle {
+    font-family: Helvetica;
+    font-style: oblique;
+    font-size: 1.5em;
 }
