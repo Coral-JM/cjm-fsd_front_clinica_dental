@@ -1,0 +1,19 @@
+
+.normalInput {
+
+    border-radius: 0.5em;
+    border: 0.1em solid white;
+    width: 15em;
+    height: 2em;
+
+    margin-top: 1.5em;
+
+    font-family: monospace;
+}
+
+.errorInput {
+
+    color: red;
+    border: 0.1em solid red;
+    
+}

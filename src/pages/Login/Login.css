@@ -1,9 +1,12 @@
 
 .loginDesign {
 
-    height: 85vh;
-    width: 100vw;
-
+    height: 90vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    
     background-color: #f8f1ee;
 
     display: flex;
@@ -11,4 +14,35 @@
     justify-content: center;
     align-items: center;
 
+    font-family: monospace;
+
+}
+
+.errorText {
+    color: red;
+}
+
+.botonLogin {
+
+    height: 2em;
+    width: 7em;
+
+    background-color: white;
+    color: black;
+
+    cursor: pointer;
+    transition: 0.2s;
+
+    border-radius: 0.5em;
+    margin: 2em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botonLogin:hover {
+
+    transition: 0.2s;
+    background-color: #15aabf; 
 }
