@@ -1,17 +1,12 @@
 
 import axios from 'axios';
 
-const root = "/localhost:/5000"
-
-export const bringProducts = async () => {
-
-    return await axios.post(`http://localhost:5000/login`);
-};
+const root = "http://localhost:5000";
 
 export const loginMe = async (credentials) => {
 
     //Esto es un ejemplo de como enviamos un body por axios en un protocolo POST
-    return await axios.post(`urldelbackendqueseencargadellogin`, credentials);
+    return await axios.post(`${root}/login`, credentials);
 
 
 }

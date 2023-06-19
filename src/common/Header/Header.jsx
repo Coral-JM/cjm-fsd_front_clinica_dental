@@ -24,9 +24,9 @@ export const Header = () => {
 
                     <div className="navbarLinks">
                         <div className="navLinks">
-                        <div className="webLinks" onClick={()=>navigate("/home")}>HOME</div>
+                        <div className="webLinks" onClick={()=>navigate("/home")}>( m i n t )</div>
                         <div className="webLinks" onClick={()=>navigate("/tratamientos")}>Tratamientos</div>
-                        <div className="webLinks" onClick={()=>navigate("/pidecita")}>pide tu cita</div>
+                        
                         </div>
                         
                         <div className="submitLinks">

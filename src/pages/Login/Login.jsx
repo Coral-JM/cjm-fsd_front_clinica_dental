@@ -43,14 +43,14 @@ export const Login = () => {
     loginMe(credentials)
       .then((resultado) => {
         let decodificado = jwt_decode(resultado.data.token);
-        // console.log(resultado.data.token)
-        // console.log(decodificado);
+        console.log(resultado.data.token)
+        console.log(decodificado);
 
         setTimeout(() => {
           navigate("/");
         }, 3500);
 
-        setWelcome(`Bienvenid@ de nuevo ${decodificado.name}`);
+        setWelcome(`Nos alegra volver a verte, ${decodificado.name}`);
       })
       .catch((error) => console.log(error));
   };
