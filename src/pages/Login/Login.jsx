@@ -23,9 +23,6 @@ export const Login = () => {
   const [welcome, setWelcome] = useState("");
 
   const inputHandler = (e) => {
-    //Ahora vamos a proceder a bindear o atar los inputs mediante
-    //la presente función handler a sus correspondientes estados en el hook, que
-    //ahora se llama credentials.
 
     setCredentials((prevState) => ({
       ...prevState,
@@ -68,7 +65,6 @@ export const Login = () => {
           {/* {<pre>{JSON.stringify(credentials, null, 2)}</pre>} */}
 
           <InputText
-            // type, design, placeholder, name, functionHandler, onBlurFunction
             type={"email"}
             design={
               credentialsError.emailError === ""
@@ -82,7 +78,6 @@ export const Login = () => {
           />
           <div className="errorText">{credentialsError.emailError}</div>
           <InputText
-            // type, design, placeholder, name, functionHandler, onBlurFunction
             type={"password"}
             design={
               credentialsError.passwordError === ""

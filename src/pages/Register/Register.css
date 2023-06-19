@@ -1,9 +1,11 @@
 
 .registerDesign {
 
-    height: 85vh;
-    width: 100vw;
-
+    height: 90vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
     background-color: #f8f1ee;
 
     display: flex;

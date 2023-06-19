@@ -18,7 +18,7 @@ export const checkError = (name, value) => {
         case "contraseña":
 
             if(value.length < 8){
-                return "El password debe de tener 8 caracteres minimo";
+                return "Mínimo 8 carácteres";
 
             }
                 return "";

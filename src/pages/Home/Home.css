@@ -1,17 +1,16 @@
 
 .homeDesign {
 
-    /* height: 90vh; */
-    width: 100vw;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
 
     background-color: #f8f1ee;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
-    /* flex-wrap: wrap; */
-    /* flex-direction: row; */
 }
 
 @font-face {
