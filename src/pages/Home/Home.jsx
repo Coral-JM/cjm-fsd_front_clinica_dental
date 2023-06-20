@@ -13,8 +13,8 @@ export const Home = () => {
                 <div className="tittleTwo">la cultura de</div>
                 <div className="tittleTwo">la salud bucal</div>
 
-                <div className="subtittle">( m i n t ) es bienestar, belleza y cuidado.</div>
-                <div className="subtittle">Un espacio donde cuidaremos de ti y de tu sonrisa.</div>  
+                <div className="subtittleHome">( m i n t ) es bienestar, belleza y cuidado.</div>
+                <div className="subtittleHome">Un espacio donde cuidaremos de ti y de tu sonrisa.</div>  
                 <img src={ imgHome } className='imgHome'/>
                 <div className="pideCitaHome" onClick={()=>navigate("/pidecita")}>Reserva tu cita</div>
             </div>

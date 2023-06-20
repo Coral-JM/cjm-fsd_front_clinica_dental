@@ -25,7 +25,10 @@ export const checkError = (name, value) => {
 
 
         case "name":
-        
+            if (value.length < 2){
+                return "Mínimo 2 letras"
+            }
+                return "";
 
         break;
 

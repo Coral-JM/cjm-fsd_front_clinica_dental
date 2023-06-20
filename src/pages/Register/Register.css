@@ -6,6 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
+    
     background-color: #f8f1ee;
 
     display: flex;
@@ -13,4 +14,51 @@
     justify-content: center;
     align-items: center;
 
+    font-family: monospace;
+
 }
+.errorTextRegister{
+    color: red;
+}
+
+.botonRegister {
+    height: 2em;
+    width: 7em;
+
+    background-color: white;
+    color: black;
+
+    cursor: pointer;
+    transition: 0.2s;
+
+    border-radius: 0.5em;
+    margin: 1em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botonRegister:hover {
+
+    transition: 0.2s;
+    background-color: #15aabf; 
+}
+.subtittle{
+    display: flex;
+    flex-direction: row;
+    font-family: monospace;
+    font-size: 1em;
+    margin-right: 0.5em;
+}
+.linkSubmit {
+    margin-left: 0.5em;
+    font-weight: bold;
+    color:#15aabf;
+    cursor: pointer;
+}
+.linkSubmit:hover {
+    transition: 0.2s;
+    color: darkgrey;
+}
+

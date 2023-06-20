@@ -8,5 +8,11 @@ export const loginMe = async (credentials) => {
     //Esto es un ejemplo de como enviamos un body por axios en un protocolo POST
     return await axios.post(`${root}/login`, credentials);
 
+}
+
+export const registerMe = async (credentials) => {
+
+    //Esto es un ejemplo de como enviamos un body por axios en un protocolo POST
+    return await axios.post(`${root}/register`, credentials);
 
 }

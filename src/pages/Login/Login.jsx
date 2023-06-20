@@ -61,7 +61,7 @@ export const Login = () => {
         <div>{welcome}</div>
       ) : (
         <div>
-          {/* La utilidad de la siguiente linea es renderizar un hook at tiempo real en el DOM */}
+          {/* La utilidad de la siguiente linea es renderizar un hook a tiempo real en el DOM */}
           {/* {<pre>{JSON.stringify(credentials, null, 2)}</pre>} */}
 
           <InputText
@@ -97,6 +97,9 @@ export const Login = () => {
             <div onClick={() => logMe()} className="botonLogin">
             Login
             </div>
+          <div className='subtittle'>¿No tienes una cuenta?
+          <div className="linkSubmit" onClick={()=>navigate("/register")}>Regístrate</div>
+          </div>
     </div>
   );
 };

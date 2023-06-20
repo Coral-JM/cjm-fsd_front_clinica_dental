@@ -31,7 +31,7 @@ export const Header = () => {
                         
                         <div className="submitLinks">
                         <div className="userForms" onClick={()=>navigate("/login")}>Login</div>
-                        <div className="userForms" onClick={()=>navigate("/register")}>Register</div>
+                        {/* <div className="userForms" onClick={()=>navigate("/register")}>Register</div> */}
                         </div>
                     </div>
                 )

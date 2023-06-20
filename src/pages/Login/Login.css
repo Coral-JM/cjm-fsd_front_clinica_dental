@@ -46,3 +46,20 @@
     transition: 0.2s;
     background-color: #15aabf; 
 }
+.subtittle{
+    display: flex;
+    flex-direction: row;
+    font-family: monospace;
+    font-size: 1em;
+
+}
+.linkSubmit {
+    margin-left: 0.5em;
+    font-weight: bold;
+    color:#15aabf;
+    cursor: pointer;
+}
+.linkSubmit:hover {
+    transition: 0.2s;
+    color: darkgrey;
+}
