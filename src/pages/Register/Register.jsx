@@ -44,12 +44,14 @@ export const Register = () => {
     const regMe = () => {
 
       registerMe(credentials)
+      .then(() => {
 
-          setTimeout(() => {
-            navigate("/");
-          }, 3500);
-  
-          // setWelcome(`Nos alegra volver a verte, ${decodificado.name}`);
+        setTimeout(() => {
+          navigate("/");
+        }, 3500);
+
+      })
+      .catch((error) => console.log(error));
     };
 
   return (
