@@ -16,12 +16,18 @@ align-items: center;
 font-family: monospace;
 
 }
+
+.tittle {
+    padding-top: 1em;
+
+}
 .treatmentsCards{
 
-    padding-top: 5em;
-    margin-bottom: 10em;
+    margin-bottom: 5em;
     font-family: system-ui;
     padding-left: 0.5em;
+    display: flex;
+    justify-content: center;
 }
 .cardTreatmentDesign{
     display: flex;

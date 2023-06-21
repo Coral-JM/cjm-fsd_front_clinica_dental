@@ -5,11 +5,6 @@
     justify-content: center;
     align-items: center;
 }
-.textHome{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
 
 @font-face {
     font-family: "Rantera";
@@ -30,39 +25,59 @@
 }
 .tittleTwo{
     font-family: "Billion";
-    font-size: 5em;
-    margin-top: -0.3em;
-
-}
-.subtittleHome {
-    font-family: system-ui;
-    font-size: 1.2em;
 }
 
-.imgHome {
-    height: 30em;
-    width: 40em;
-    border-radius: 2em;
-    margin-bottom: 2em;
-}
-
-.pideCitaHome {
-
-    height: 2em;
-    width: 10em;
-    border-radius: 0.5em;
-    margin: 3em;
-
-    background-color: #15aabf;
-    color: white;
+.homeDesign{
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    cursor: pointer;
+    margin-bottom: 20em;
+}
+.imgHome {
+    height: 16em;
+    width: 22em;
+    border-radius: 2em;
+    padding: 0.2em;
+    margin: 0.5em;
 }
 
-.pideCitaHome:hover {
+.cardHomeText{
+    margin: 0.5em;
+}
 
-    transition: 0.2s;
-    background-color: #559199;
+@media  (max-width:360px) {
+
+    .imgHome {
+        height: 16em;
+        width: 22em;
+        border-radius: 2em;
+        padding: 0.2em;
+        margin: 0.5em;
+    }
+    .cardHomeText{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.9em;
+        margin: 2em;
+        margin-top: -3em;
+    }
+}
+@media  (min-width:1250px) {
+
+    .imgHome {
+        height: 25em;
+        width: 35em;
+        border-radius: 2em;
+        margin-left: -4em;
+        margin-top: -2em;
+
+    }
+    .cardHomeText{
+        margin: 0.5em;
+        width: 25em;
+        font-size: 1.1em;
+        margin-left: -6em;
+    }
 }
