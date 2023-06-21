@@ -1,13 +1,11 @@
 
-.homeDesign {
-
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
-
+.container {
     background-color: #f8f1ee;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.textHome{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,15 +25,8 @@
     color: #15aabf;
     display: flex;
     justify-content: center;
-    margin: 1.5em;
+    margin-bottom: 2em;
     
-}
-.content {
-    display: flex;
-    flex-direction: column;
-
-
-    margin: 7em;
 }
 .tittleTwo{
     font-family: "Billion";
@@ -51,10 +42,8 @@
 .imgHome {
     height: 30em;
     width: 40em;
-    display: flex;
-    margin-left: 42em;
-    margin-top: -27em;
     border-radius: 2em;
+    margin-bottom: 2em;
 }
 
 .pideCitaHome {
@@ -62,7 +51,7 @@
     height: 2em;
     width: 10em;
     border-radius: 0.5em;
-    margin: 1em;
+    margin: 3em;
 
     background-color: #15aabf;
     color: white;
