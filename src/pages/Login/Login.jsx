@@ -60,7 +60,7 @@ export const Login = () => {
       {welcome !== "" ? (
         <div>{welcome}</div>
       ) : (
-        <div>
+        <div className="userSubmit">
           {/* La utilidad de la siguiente linea es renderizar un hook a tiempo real en el DOM */}
           {/* {<pre>{JSON.stringify(credentials, null, 2)}</pre>} */}
 

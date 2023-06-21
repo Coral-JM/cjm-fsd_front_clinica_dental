@@ -15,6 +15,7 @@
     align-items: center;
 
     font-family: monospace;
+    font-size: 0.9em;
 
 }
 .errorTextRegister{
@@ -60,5 +61,9 @@
 .linkSubmit:hover {
     transition: 0.2s;
     color: darkgrey;
+}
+
+.userSubmit{
+    margin-top: 1em;
 }
 

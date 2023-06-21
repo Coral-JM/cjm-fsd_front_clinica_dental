@@ -57,7 +57,7 @@ export const Register = () => {
   return (
     <div className='registerDesign'>
         <div>
-          <div className="userSubmit">Nombre</div>
+          <div className="userSubmit">Nombre y apellido</div>
           <InputText
             type={"text"}
             design={
@@ -65,7 +65,7 @@ export const Register = () => {
                 ? "normalInputRegister"
                 : "normalInputRegister errorInput"
             }
-            placeholder={"Ingrese su usuario"}
+            placeholder={"Ingrese su nombre y apellido"}
             name={"name"}
             functionHandler={inputHandler}
             onBlurFunction={inputCheck}
