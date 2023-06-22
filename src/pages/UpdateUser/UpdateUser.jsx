@@ -1,7 +1,7 @@
 import React from "react";
-import './UserInfo.css'
+import './UpdateUser.css'
 
-export const UserInfo = () => {
+export const UpdateUser = () => {
     return (
         <div className="container">
             <div className="row userBody">
