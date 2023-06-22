@@ -1,5 +1,5 @@
 import React from "react";
-import "./tratamientos.css";
+import "./Tratamientos.css";
 import Card from 'react-bootstrap/Card';
 import limpieza from '../../img/limpieza.jpg'
 import caries from '../../img/caries.jpg'

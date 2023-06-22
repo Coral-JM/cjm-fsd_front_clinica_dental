@@ -1,0 +1,48 @@
+.profileBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    font-size: 1.3em;
+    color: #15aabf;
+}
+.profileTittle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3em;
+    font-family: "Rantera";
+    font-size: 1.5em;
+
+}
+.profileLines{
+    background-color: white;
+    color: black;
+    font-size: 0.7em;
+    height: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5em;
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+.profileLinesEnd {
+    background-color: white;
+    color: black;
+    font-size: 0.7em;
+    height: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5em;
+    margin-bottom: 30em;
+    cursor: pointer;
+}
+
+.profileLines:hover, .profileLinesEnd:hover {
+    transition: 0.3s;
+    background-color: #15aabf;
+}
