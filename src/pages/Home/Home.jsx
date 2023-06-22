@@ -17,7 +17,7 @@ export const Home = () => {
                     <Card.Text style={{ fontSize:"1em"}} className='subtittleHome'>
                     ( m i n t ) es bienestar, belleza y cuidado. Un espacio donde cuidaremos de ti y de tu sonrisa.
                     </Card.Text>
-                    <Button style={{ fontSize:"1em", background: "#15aabf", border: "transparent", fontFamily: "monospace", margin: "1em"}}>Reserva tu cita</Button>
+                    <Button style={{ fontSize:"1em", background: "#15aabf", border: "transparent", fontFamily: "monospace", margin: "1em"}} className='citaButton'>Reserva tu cita</Button>
                     </Card.Body>
                 </Card>
                 </div>

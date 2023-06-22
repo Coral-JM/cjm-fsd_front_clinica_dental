@@ -1,0 +1,60 @@
+.userBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    font-size: 1.3em;
+    color: #15aabf;
+}
+.userTittle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3em;
+    font-family: "Rantera";
+    font-size: 1.5em;
+}
+.userLines{
+    background-color: white;
+    color: black;
+    font-size: 0.7em;
+    height: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5em;
+    margin-bottom: 0.5em;
+}
+.userApi {
+    background-color: rgb(255, 255, 255, 0.5) ;
+    color: black;
+    font-size: 0.7em;
+    height: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5em;
+    cursor: pointer;
+    margin-bottom: 1.5em;
+    cursor: pointer;
+}
+.modificarDatos{
+    height: 3em;
+    background-color: #15aabf;
+    color: white;
+    border-radius: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7em;
+    cursor: pointer;
+    margin-bottom: 10em;
+}
+.modificarDatos:hover {
+    transition: 0.3s;
+    color: black;
+
+
+}
