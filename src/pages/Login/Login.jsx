@@ -48,7 +48,7 @@ export const Login = () => {
 
         setTimeout(() => {
           navigate("/");
-        }, 3500);
+        }, 1500);
 
         setWelcome(`Nos alegra volver a verte, ${decodificado.name}`);
       })

@@ -48,7 +48,7 @@ export const Register = () => {
 
         setTimeout(() => {
           navigate("/");
-        }, 3500);
+        }, 2500);
 
       })
       .catch((error) => console.log(error));
