@@ -8,7 +8,6 @@ export const Header = () => {
 
      const [token, setToken] = useState("");
 
-     //Instancio navigate para poder moverme entre la SPA
      const navigate = useNavigate();
 
      return (
@@ -26,14 +25,11 @@ export const Header = () => {
                         <div className="navLinks">
                         <div className="webLinks" onClick={()=>navigate("/home")}>( m i n t )</div>
                         <div className="webLinks" onClick={()=>navigate("/tratamientos")}>Tratamientos</div>
-                        <div className="webLinks" onClick={()=>navigate("/profile")}>Profile</div>
-
-                        
                         </div>
                         
                         <div className="submitLinks">
                         <div className="userForms" onClick={()=>navigate("/login")}>Login</div>
-                        {/* <div className="userForms" onClick={()=>navigate("/register")}>Register</div> */}
+                        {/* Aquí faltará el div con el nombre del user */}
                         </div>
                     </div>
                 )
