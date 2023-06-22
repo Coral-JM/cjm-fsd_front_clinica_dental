@@ -8,6 +8,7 @@ import { Register } from '../Register/Register';
 import { Tratamientos } from '../Tratamientos/Tratamientos'
 import { Profile } from '../Profile/Profile'
 import { UpdateUser } from '../UpdateUser/UpdateUser'
+import { AppointmentsAsUser } from '../AppointmentsAsUser/AppointmentsAsUser'
  
 export const Body = () => {
      return (
@@ -20,6 +21,8 @@ export const Body = () => {
                 <Route path="/tratamientos" element={<Tratamientos />}/>
                 <Route path="/profile" element={<Profile />}/>
                 <Route path="/updateUser" element={<UpdateUser />}/>
+                <Route path="/appointmentsasuser" element={<AppointmentsAsUser />}/>
+
             </Routes>
         </>
      )
