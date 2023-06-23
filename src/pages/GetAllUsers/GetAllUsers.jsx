@@ -21,17 +21,23 @@ export const AllUsers = () => {
     return (
         <div className="container">
             <div className="row">
-                <div className="col">soy get all users
+            <div className="col">
+            <div className="tittle">pacientes</div>
                 {getAllUsers.length > 0 
                     ? (
                         usersProfile.map((profile) => {
                             return (
-                                <div>{profile.name}</div>
+                                <div className="getAllUsers">
+                                    <div className="nameUsers">Nombre y apellido</div>
+                                    <div className="nameGetAllUsers">{profile.name}</div>
+                                    <div className="nameUsers">Email</div>
+                                    <div className="emailGetAllUsers">{profile.email}</div>
+                                </div>
                             )
                         })
                     )
                     : (
-                        <div>Cargando...</div>
+                        <div className="loading">Cargando...</div>
                     )
                 }
                 </div>
