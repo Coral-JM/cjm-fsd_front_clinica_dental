@@ -14,3 +14,7 @@ export const registerMe = async (credentials) => {
 export const getAllUsers = async (usersProfile) => {
     return await axios.get(`${root}/users/allusers`, usersProfile);
 }
+
+export const getAllAppointments  = async (appointments) => {
+    return await axios.get(`${root}/appointments/doctor/allappointments`, appointments);
+}
