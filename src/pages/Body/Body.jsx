@@ -5,10 +5,11 @@ import {Route, Routes, Navigate} from 'react-router-dom';
 import { Home } from '../Home/Home';
 import { Login } from '../Login/Login';
 import { Register } from '../Register/Register';
-import { Tratamientos } from '../Tratamientos/Tratamientos'
-import { Profile } from '../Profile/Profile'
-import { UpdateUser } from '../UpdateUser/UpdateUser'
-import { AppointmentsAsUser } from '../AppointmentsAsUser/AppointmentsAsUser'
+import { Tratamientos } from '../Tratamientos/Tratamientos';
+import { Profile } from '../Profile/Profile';
+import { UpdateUser } from '../UpdateUser/UpdateUser';
+import { AppointmentsAsUser } from '../AppointmentsAsUser/AppointmentsAsUser';
+import { AllProfiles } from '../GetAllUsers/GetAllUsers';
  
 export const Body = () => {
      return (
@@ -22,6 +23,7 @@ export const Body = () => {
                 <Route path="/profile" element={<Profile />}/>
                 <Route path="/updateUser" element={<UpdateUser />}/>
                 <Route path="/appointmentsasuser" element={<AppointmentsAsUser />}/>
+                <Route path="/allusers" element={<AllProfiles />}/>
 
             </Routes>
         </>
