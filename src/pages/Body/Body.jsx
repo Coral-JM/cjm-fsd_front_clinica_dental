@@ -9,7 +9,7 @@ import { Tratamientos } from '../Tratamientos/Tratamientos';
 import { Profile } from '../Profile/Profile';
 import { UpdateUser } from '../UpdateUser/UpdateUser';
 import { AppointmentsAsUser } from '../AppointmentsAsUser/AppointmentsAsUser';
-import { AllProfiles } from '../GetAllUsers/GetAllUsers';
+import { AllUsers } from '../GetAllUsers/GetAllUsers';
  
 export const Body = () => {
      return (
@@ -23,8 +23,7 @@ export const Body = () => {
                 <Route path="/profile" element={<Profile />}/>
                 <Route path="/updateUser" element={<UpdateUser />}/>
                 <Route path="/appointmentsasuser" element={<AppointmentsAsUser />}/>
-                <Route path="/allusers" element={<AllProfiles />}/>
-
+                <Route path="/allusers" element={<AllUsers />}/>
             </Routes>
         </>
      )

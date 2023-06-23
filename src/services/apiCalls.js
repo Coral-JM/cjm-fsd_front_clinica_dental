@@ -12,5 +12,5 @@ export const registerMe = async (credentials) => {
 }
 
 export const getAllUsers = async (usersProfile) => {
-    return await axios.post(`${root}/allusers`, usersProfile);
+    return await axios.get(`${root}/users/allusers`, usersProfile);
 }
