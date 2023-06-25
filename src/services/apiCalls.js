@@ -18,3 +18,8 @@ export const getAllUsers = async (usersProfile) => {
 export const getAllAppointments  = async (appointments) => {
     return await axios.get(`${root}/appointments/doctor/allappointments`, appointments);
 }
+
+export const searchAppointment = async (criteria) => {
+    return await axios.get(`${root}/appointments/doctor/allappointments/?name=${criteria}`);
+}
+  

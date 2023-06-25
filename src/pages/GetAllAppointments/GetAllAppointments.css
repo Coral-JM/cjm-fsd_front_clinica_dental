@@ -22,3 +22,8 @@
 .nameAppointments{
     font-weight: bold;
 }
+.searchInput {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+}
