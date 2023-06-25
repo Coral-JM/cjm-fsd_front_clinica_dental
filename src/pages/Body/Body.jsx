@@ -11,6 +11,7 @@ import { UpdateUser } from '../UpdateUser/UpdateUser';
 import { AppointmentsAsUser } from '../AppointmentsAsUser/AppointmentsAsUser';
 import { AllUsers } from '../GetAllUsers/GetAllUsers';
 import { AllAppointments } from '../GetAllAppointments/GetAllAppointments';
+import { CreateAppointment } from '../CreateAppointment/CreateAppointment';
 
 
 
@@ -28,6 +29,7 @@ export const Body = () => {
                 <Route path="/appointmentsasuser" element={<AppointmentsAsUser />}/>
                 <Route path="/allusers" element={<AllUsers />}/>
                 <Route path="/allappointments" element={<AllAppointments />}/>
+                <Route path="/createappointment" element={<CreateAppointment />}/>
 
             </Routes>
         </>

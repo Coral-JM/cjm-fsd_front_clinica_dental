@@ -2,10 +2,13 @@
 import React, {useState, useEffect} from 'react';
 import "./Home.css";
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import imgHome from '../../img/modelImg.jpg';
+import { useNavigate } from 'react-router-dom';
  
 export const Home = () => {
+
+    const navigate = useNavigate();
+    
     return (
         <div className='container'>
             <div className="homeDesign row">
@@ -17,7 +20,8 @@ export const Home = () => {
                     <Card.Text style={{ fontSize:"1em"}} className='subtittleHome'>
                     ( m i n t ) es bienestar, belleza y cuidado. Un espacio donde cuidaremos de ti y de tu sonrisa.
                     </Card.Text>
-                    <Button style={{ fontSize:"1em", background: "#15aabf", border: "transparent", fontFamily: "monospace", margin: "1em"}} className='citaButton'>Reserva tu cita</Button>
+                    <div style={{ fontSize:"1em", background: "#15aabf", border: "transparent", fontFamily: "monospace", margin: "1em"}} className='citaButton'
+                    onClick={()=>navigate("/createappointment")}>Reserva tu cita</div>
                     </Card.Body>
                 </Card>
                 </div>

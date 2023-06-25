@@ -22,4 +22,6 @@ export const getAllAppointments  = async (appointments) => {
 export const searchAppointment = async (criteria) => {
     return await axios.get(`${root}/appointments/doctor/allappointments/?name=${criteria}`);
 }
-  
+export const bookAppointment = async (credentials) => {
+    return await axios.post(`${root}/appointments/createappointments`, credentials)
+  }

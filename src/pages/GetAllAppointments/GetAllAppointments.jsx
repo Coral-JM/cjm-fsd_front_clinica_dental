@@ -6,6 +6,8 @@ import { InputText } from "../../common/InputText/InputText";
 export const AllAppointments = () => {
     const [appointments, setAppointments] = useState ([])
     const [criteria, setCriteria] = useState("");
+    const [filteredAppointments, setFilteredAppointments] = useState([]);
+
 
     useEffect (() => {
         if (appointments.length === 0) {
@@ -26,6 +28,7 @@ export const AllAppointments = () => {
                 searchAppointment(criteria)
                 .then((resultado) => {
                     console.log("He buscado");
+                    console.log(resultado.data.data); 
                     setAppointments(resultado.data.data);
                 })
                 .catch((error) => console.log(error))

@@ -80,3 +80,17 @@
         margin-left: -6em;
     }
 }
+.citaButton {
+    height: 2em;
+    width: 12em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+.citaButton:hover{
+    transition: 0.3s;
+    color: black;
+}
