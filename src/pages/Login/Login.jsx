@@ -1,105 +1,124 @@
-import React, { useState } from "react";
-import jwt_decode from "jwt-decode";
+import React, { useEffect, useState } from "react";
 import "./Login.css";
 import { InputText } from "../../common/InputText/InputText";
 import { checkError } from "../../services/useful";
 import { loginMe } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
+import { inputHandler } from "../../services/useful";
+import { useDispatch } from "react-redux";
+import jwtDecode from "jwt-decode";
+import { login } from "../userSlice";
 
 export const Login = () => {
-
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const [credentials, setCredentials] = useState({
+  const [user, setUser] = useState({
     email: "",
     password: "",
   });
+  const [token, setToken] = useState("");
 
-  const [credentialsError, setCredentialsError] = useState({
-    emailError: "",
-    passwordError: "",
+  const [userError, setUserError] = useState({
+    credentials: "",
   });
 
   const [welcome, setWelcome] = useState("");
 
-  const inputHandler = (e) => {
-
-    setCredentials((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
+  const submitHandler = (e, body) => {
+    e.preventDefault();
+    loginMe(body)
+      .then((res) => {
+        setToken(res);
+      })
+      .catch((error) => {
+        console.log(error);
+        setUserError({
+          credentials: error.response.data.message,
+        });
+      });
   };
 
   const inputCheck = (e) => {
     let mensajeError = checkError(e.target.name, e.target.value);
 
-    setCredentialsError((prevState) => ({
+    setUserError((prevState) => ({
       ...prevState,
       [e.target.name + "Error"]: mensajeError,
     }));
   };
 
-  const logMe = () => {
-    loginMe(credentials)
-      .then((resultado) => {
-        let decodificado = jwt_decode(resultado.data.token);
-        console.log(resultado.data.token)
-        console.log(decodificado);
-
-        setTimeout(() => {
-          navigate("/");
-        }, 1500);
-
-        setWelcome(`Nos alegra volver a verte, ${decodificado.name}`);
-      })
-      .catch((error) => console.log(error));
-  };
+  useEffect(() => {
+    if (token) {
+      let decoded = jwtDecode(token);
+      dispatch(
+        login({
+          token: token,
+          name: decoded.name,
+        })
+      );
+      navigate("/");
+    }
+  }, [token]);
 
   return (
-    <div className="loginDesign">
-      {welcome !== "" ? (
-        <div>{welcome}</div>
-      ) : (
-        <div className="userSubmit">
-          {/* La utilidad de la siguiente linea es renderizar un hook a tiempo real en el DOM */}
-          {/* {<pre>{JSON.stringify(credentials, null, 2)}</pre>} */}
+    <Container>
+      <Row>
+        <Col>
+          <div className="loginDesign">
+            {welcome !== "" ? (
+              <div>{welcome}</div>
+            ) : (
+              <div className="userSubmit">
+                {/* La utilidad de la siguiente linea es renderizar un hook a tiempo real en el DOM */}
+                {/* {<pre>{JSON.stringify(user, null, 2)}</pre>} */}
 
-          <InputText
-            type={"email"}
-            design={
-              credentialsError.emailError === ""
-                ? "normalInput"
-                : "normalInput errorInput"
-            }
-            placeholder={"Email"}
-            name={"email"}
-            functionHandler={inputHandler}
-            onBlurFunction={inputCheck}
-          />
-          <div className="errorText">{credentialsError.emailError}</div>
-          <InputText
-            type={"password"}
-            design={
-              credentialsError.passwordError === ""
-                ? "normalInput"
-                : "normalInput errorInput"
-            }
-            placeholder={"Password"}
-            name={"password"}
-            functionHandler={inputHandler}
-            onBlurFunction={inputCheck}
-          />
-          <div className="errorText">{credentialsError.passwordError}</div>
-
-
-        </div>
-      )}
-            <div onClick={() => logMe()} className="botonLogin">
-            Login
+                <InputText
+                  type={"email"}
+                  design={
+                    !userError.emailError
+                      ? "normalInput"
+                      : "normalInput errorInput"
+                  }
+                  placeholder={"Email"}
+                  name={"email"}
+                  state={setUser}
+                  onBlurFunction={inputCheck}
+                />
+                <div className="errorText">{userError.emailError}</div>
+                <InputText
+                  type={"password"}
+                  design={
+                    !userError.passwordError
+                      ? "normalInput"
+                      : "normalInput errorInput"
+                  }
+                  placeholder={"Password"}
+                  name={"password"}
+                  state={setUser}
+                  onBlurFunction={inputCheck}
+                />
+                <div className="errorText">{userError.passwordError}</div>
+              </div>
+            )}
+            <div
+              onClick={(e) => {
+                submitHandler(e, user);
+              }}
+              className="botonLogin"
+            >
+              Login
             </div>
-          <div className='subtittle'>¿No tienes una cuenta?
-          <div className="linkSubmit" onClick={()=>navigate("/register")}>Regístrate</div>
+            <div className="subtittle">
+              ¿No tienes una cuenta?
+              <div className="linkSubmit" onClick={() => navigate("/register")}>
+                Regístrate
+              </div>
+            </div>
           </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   );
 };

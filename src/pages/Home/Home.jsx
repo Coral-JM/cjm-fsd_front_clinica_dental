@@ -1,6 +1,7 @@
 
 import React, {useState, useEffect} from 'react';
 import "./Home.css";
+import { Container, Row, Col  } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import imgHome from '../../img/modelImg.jpg';
 import { useNavigate } from 'react-router-dom';
@@ -10,10 +11,10 @@ export const Home = () => {
     const navigate = useNavigate();
     
     return (
-        <div className='container'>
-            <div className="homeDesign row">
+        <Container>
+            <Row className="homeDesign">
                 <div className="tittle">( m i n t )</div>
-                <div className="col d-flex justify-content-center cardOneHome">
+                <Col className="cardOneHome">
                 <Card style={{ width: "25em", background: "transparent", border: "transparent"}}>
                     <Card.Body className='cardHomeText'>
                     <Card.Title  style={{ fontSize:"3.5em"}} className='tittleTwo'>Reinventando la cultura de la salud bucal</Card.Title>
@@ -24,7 +25,7 @@ export const Home = () => {
                     onClick={()=>navigate("/createappointment")}>Reserva tu cita</div>
                     </Card.Body>
                 </Card>
-                </div>
+                </Col>
                 <div className="col d-flex justify-content-center">
                 <Card style={{ width: "25em", background: "transparent", border: "transparent"}}>
                     <Card.Body>
@@ -34,7 +35,7 @@ export const Home = () => {
                     </Card.Body>
                 </Card>
                 </div>
-            </div>
-        </div>
+            </Row>
+        </Container>
     )
 }

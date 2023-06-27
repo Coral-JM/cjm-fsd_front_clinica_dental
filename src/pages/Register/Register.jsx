@@ -4,38 +4,38 @@ import { InputText } from "../../common/InputText/InputText";
 import { checkError } from "../../services/useful";
 import { useNavigate } from "react-router-dom";
 import { registerMe } from "../../services/apiCalls";
-// import jwt_decode from "jwt-decode";
+
 
 export const Register = () => {
 
   const navigate = useNavigate();
 
-  const [credentials, setCredentials] = useState({
+  const [user, setUser] = useState({
     name: "",
     email: "",
     password: "",
   });
 
-  const [credentialsError, setCredentialsError] = useState({
+  const [userError, setUserError] = useState({
     nameError: "",
     emailError: "",
     passwordError: "",
   });
 
-  const inputHandler = (e) => {
+  // const inputHandler = (e) => {
 
-    setCredentials((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-  };
+  //   setUser((prevState) => ({
+  //     ...prevState,
+  //     [e.target.name]: e.target.value,
+  //   }));
+  // };
 
 
   const inputCheck = (e) => {
 
     let mensajeError = checkError(e.target.name, e.target.value);
 
-    setCredentialsError((prevState) => ({
+    setUserError((prevState) => ({
       ...prevState,
       [e.target.name + "Error"]: mensajeError,
     }));
@@ -43,7 +43,7 @@ export const Register = () => {
   
     const regMe = () => {
 
-      registerMe(credentials)
+      registerMe(user)
       .then(() => {
 
         setTimeout(() => {
@@ -61,31 +61,31 @@ export const Register = () => {
           <InputText
             type={"text"}
             design={
-              credentialsError.nameError === ""
+              userError.nameError === ""
                 ? "normalInputRegister"
                 : "normalInputRegister errorInput"
             }
             placeholder={"Ingrese su nombre y apellido"}
             name={"name"}
-            functionHandler={inputHandler}
+            state={setUser}
             onBlurFunction={inputCheck}
           />
-          <div className="errorTextRegister">{credentialsError.nameError}</div>
+          <div className="errorTextRegister">{userError.nameError}</div>
         <div>
         <div className="userSubmit">Email</div>
           <InputText
             type={"email"}
             design={
-              credentialsError.emailError === ""
+              userError.emailError === ""
                 ? "normalInputRegister"
                 : "normalInput errorInput"
             }
             placeholder={"Ingrese su email"}
             name={"email"}
-            functionHandler={inputHandler}
+            state={setUser}
             onBlurFunction={inputCheck}
           />
-          <div className="errorText">{credentialsError.emailError}</div>
+          <div className="errorText">{userError.emailError}</div>
 
         </div>
         <div>
@@ -93,16 +93,16 @@ export const Register = () => {
           <InputText
             type={"password"}
             design={
-              credentialsError.passwordError === ""
+              userError.passwordError === ""
                 ? "normalInputRegister"
                 : "normalInput errorInput"
             }
             placeholder={"Ingrese su contraseña"}
             name={"password"}
-            functionHandler={inputHandler}
+            state={setUser}
             onBlurFunction={inputCheck}
           />
-          <div className="errorText">{credentialsError.passwordError}</div>
+          <div className="errorText">{userError.passwordError}</div>
         </div>
         </div>
         <div onClick={() => regMe()} className="botonRegister">Registro</div>

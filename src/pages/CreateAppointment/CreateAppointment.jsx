@@ -47,7 +47,7 @@ const navigate = useNavigate();
     const checkError = (e) => {};
 
     const bookApp = () => {
-        bookAppointment(infoAppointment, credentials);
+        bookAppointment(infoAppointment, user);
         setTimeout(() => {
           navigate("/createappointment");
         }, 500);

@@ -3,12 +3,13 @@ import axios from 'axios';
 
 const root = "http://localhost:5000";
 
-export const loginMe = async (credentials) => {
-    return await axios.post(`${root}/login`, credentials);
+export const loginMe = async (body) => {
+    let res = await axios.post(`${root}/login`, body);
+    return res.data.token;
 }
 
-export const registerMe = async (credentials) => {
-    return await axios.post(`${root}/register`, credentials);
+export const registerMe = async (user) => {
+    return await axios.post(`${root}/register`, user);
 }
 
 export const getAllUsers = async (usersProfile) => {
@@ -22,6 +23,6 @@ export const getAllAppointments  = async (appointments) => {
 export const searchAppointment = async (criteria) => {
     return await axios.get(`${root}/appointments/doctor/allappointments/?name=${criteria}`);
 }
-export const bookAppointment = async (credentials) => {
-    return await axios.post(`${root}/appointments/createappointments`, credentials)
+export const bookAppointment = async (user) => {
+    return await axios.post(`${root}/appointments/createappointments`, user)
   }

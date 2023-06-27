@@ -1,7 +1,6 @@
-
 .loginDesign {
 
-    height: 90vh;
+    height: 100vh;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,7 +16,6 @@
     font-family: monospace;
     font-size: 0.9em;
 
-
 }
 
 .errorText {
@@ -28,8 +26,8 @@
 
     height: 2em;
     width: 7em;
-    background-color: white;
-    color: black;
+    background-color: #15aabf;
+    color: white;
     cursor: pointer;
 
     border-radius: 0.5em;
@@ -43,7 +41,7 @@
 .botonLogin:hover {
 
     transition: 0.2s;
-    background-color: #15aabf; 
+    color: black;
 }
 .subtittle{
     display: flex;
@@ -61,4 +59,10 @@
 .linkSubmit:hover {
     transition: 0.2s;
     color: darkgrey;
+}
+.tittleLogin{
+    margin: 1em;
+    font-family: "Rantera";
+    font-size: 3em;
+    color: #15aabf;
 }
