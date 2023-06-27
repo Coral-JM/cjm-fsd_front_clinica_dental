@@ -6,8 +6,6 @@ import { InputText } from "../../common/InputText/InputText";
 export const AllAppointments = () => {
     const [appointments, setAppointments] = useState ([])
     const [criteria, setCriteria] = useState("");
-    const [filteredAppointments, setFilteredAppointments] = useState([]);
-
 
     useEffect (() => {
         if (appointments.length === 0) {

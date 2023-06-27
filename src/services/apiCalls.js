@@ -12,6 +12,18 @@ export const registerMe = async (user) => {
     return await axios.post(`${root}/register`, user);
 }
 
+export const getProfile = async (token) => {
+    let config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+  
+    let res = await axios.get(`${root}/users/myuser/updateProfile`, config);
+    console.log(res)
+    return res;
+  };
+
 export const getAllUsers = async (usersProfile) => {
     return await axios.get(`${root}/users/allusers`, usersProfile);
 }

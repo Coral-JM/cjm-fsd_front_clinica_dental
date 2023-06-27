@@ -16,7 +16,7 @@ export const Profile = () => {
             <Row className="profileBody">
                 <Col>
                 <div className="profileTittle">( perfil de usuario )</div>
-                <div onClick={()=>navigate("/UpdateUser")} style= {{width:"24em"}}className="profileLines">Información del usuario</div>
+                <div onClick={()=>navigate("/updateProfile")} style= {{width:"24em"}}className="profileLines">Información del usuario</div>
                 <div onClick={()=>navigate("/appointmentsasuser")} style= {{width:"24em"}}className="profileLines">Mis citas</div> 
                 <div onClick={()=>{
                   dispatch(logout()); 

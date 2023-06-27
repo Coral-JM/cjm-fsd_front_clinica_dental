@@ -7,7 +7,7 @@ import { Login } from '../Login/Login';
 import { Register } from '../Register/Register';
 import { Tratamientos } from '../Tratamientos/Tratamientos';
 import { Profile } from '../Profile/Profile';
-import { UpdateUser } from '../UpdateUser/UpdateUser';
+import { UpdateProfile } from '../UpdateUser/UpdateUser';
 import { AppointmentsAsUser } from '../AppointmentsAsUser/AppointmentsAsUser';
 import { AllUsers } from '../GetAllUsers/GetAllUsers';
 import { AllAppointments } from '../GetAllAppointments/GetAllAppointments';
@@ -25,7 +25,7 @@ export const Body = () => {
                 <Route path="/register" element={<Register />}/>
                 <Route path="/tratamientos" element={<Tratamientos />}/>
                 <Route path="/profile" element={<Profile />}/>
-                <Route path="/updateUser" element={<UpdateUser />}/>
+                <Route path="/updateProfile" element={<UpdateProfile />} />
                 <Route path="/appointmentsasuser" element={<AppointmentsAsUser />}/>
                 <Route path="/allusers" element={<AllUsers />}/>
                 <Route path="/allappointments" element={<AllAppointments />}/>
