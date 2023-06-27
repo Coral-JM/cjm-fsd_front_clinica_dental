@@ -6,15 +6,17 @@
     font-family: monospace;
     font-size: 1.3em;
     color: #15aabf;
+    height: 90vh;
 }
 .profileTittle{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 3em;
     font-family: "Rantera";
     font-size: 1.5em;
+    margin-top: 3em;
+    margin-bottom: 3em;
 
 }
 .profileLines{
@@ -38,7 +40,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 0.5em;
-    margin-bottom: 30em;
+    margin-bottom: 2em;
     cursor: pointer;
 }
 
