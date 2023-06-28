@@ -18,6 +18,18 @@
     font-size: 1.5em;
 }
 .appointmentsLines{
+    /* background-color: white; */
+    color: black;
+    font-size: 0.8em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5em;
+    margin-bottom: 0.5em;
+    margin-top: 1em;
+}
+.appointmentsApi {
     background-color: white;
     color: black;
     font-size: 0.7em;
@@ -28,21 +40,7 @@
     align-items: center;
     border-radius: 0.5em;
     margin-bottom: 0.5em;
-    margin-top: 1em;
-}
-.appointmentsApi {
-    background-color: rgb(255, 255, 255, 0.5) ;
-    color: black;
-    font-size: 0.7em;
-    height: 2.5em;
-    width: 23em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0.5em;
-    cursor: pointer;
-    margin-bottom: 0.5em;
-    cursor: pointer;
+
 }
 .modificarCita, .eliminarCita {
     height: 3em;
@@ -66,3 +64,26 @@
 .eliminarCita {
     margin-bottom: 5em;
 }
+.boxInfo{
+    border: white solid 0.1em;
+    background-color: rgb(255, 255, 255, 0.2);
+    padding: 0.2em;
+    margin-bottom: 0.3em;
+}
+.newDate {
+    display: flex;
+    justify-content: center;
+}
+.appDate, .appTime{
+    font-size: 0.8em;
+    margin: 0.5em;
+}
+.formUpdateAppointment{
+    width: 20em;
+    height: 2.3em;
+    font-size: 0.8em;
+    margin-bottom: 0.5em;
+    border-radius: 0.3em;
+    border: grey 0.1em solid;
+}
+

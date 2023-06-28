@@ -35,7 +35,6 @@ export const updateProf = async (body, token) => {
 }
 
 
-
 export const getAppointmentsUser  = async (token) => {
   let config = {
     headers: {
@@ -45,6 +44,17 @@ export const getAppointmentsUser  = async (token) => {
 
     let res = await axios.get(`${root}/appointments/appointmentsasuser`, config);
     return res;
+}
+
+
+export const updateAppointment = async (body, token) => {
+  let config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  console.log(body);
+  return await axios.put(`${root}/users/myuser/updateProfile`, body, config);
 }
 
 
