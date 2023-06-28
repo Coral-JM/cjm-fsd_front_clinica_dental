@@ -22,15 +22,6 @@ export const Register = () => {
     passwordError: "",
   });
 
-  // const inputHandler = (e) => {
-
-  //   setUser((prevState) => ({
-  //     ...prevState,
-  //     [e.target.name]: e.target.value,
-  //   }));
-  // };
-
-
   const inputCheck = (e) => {
 
     let mensajeError = checkError(e.target.name, e.target.value);

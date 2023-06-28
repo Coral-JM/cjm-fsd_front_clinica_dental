@@ -24,6 +24,16 @@ export const getProfile = async (token) => {
     return res;
   };
 
+export const updateProf = async (body, token) => {
+  let config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  console.log(body);
+  return await axios.put(`${root}/users/myuser/updateProfile`, body, config);
+}
+
 export const getAllUsers = async (usersProfile) => {
     return await axios.get(`${root}/users/allusers`, usersProfile);
 }

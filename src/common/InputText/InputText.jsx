@@ -20,7 +20,7 @@ export const InputText = ({type, design, placeholder, name, state, onBlurFunctio
                 placeholder={placeholder}
                 name={name}
                 onChange={(e)=>inputHandler(e, state)}
-                onBlur={(e)=>onBlurFunction(e)}
+                // onBlur={(e)=>onBlurFunction(e)}
             />
          </>
      )
