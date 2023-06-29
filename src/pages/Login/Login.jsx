@@ -56,6 +56,7 @@ export const Login = () => {
         login({
           token: token,
           name: decoded.name,
+          userId: decoded.userId,
         })
       );
       navigate("/");

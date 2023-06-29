@@ -70,79 +70,41 @@ export const AppointmentsAsUser = () => {
 
             {appointments?.length > 0 ? (
               appointments.map((profile) => {
+                
                 return (
                   <>
                     <div className="boxInfo">
+                      <div className="appointmentsLines">Tratamiento</div>
+                      <div className="appointmentsApi">
+                        {profile.Service.name}
+                      </div>
 
-                    
-                    <div className="appointmentsLines">Tratamiento</div>
-                    <div className="appointmentsApi">
-                      {profile.Service.name}
-                    </div>
-                    {/* <div className="formUpdateAppointment">
-                      <Form.Select 
-                        name={"service_id"}
-                        >
-                        <option>{profile.Service.name}</option>
-                        {services.map((service) => {
-                          return (
-                            <option key={service.id} value={service.id}>
-                              {service.name}
-                            </option>
-                          );
-                        })}
-                      </Form.Select>
-                    </div> */}
+                      <div className="appointmentsLines">Doctora</div>
+                      <div className="appointmentsApi">
+                        {profile.Doctor.User.name}
+                      </div>
 
+                      <div className="appointmentsLines">Fecha y hora</div>
+                      <div className="appointmentsApi">
+                        {new Date(profile.date).toLocaleString()}
+                      </div>
 
-                    <div className="appointmentsLines">Doctora</div>
-                    <div className="appointmentsApi">
-                      {profile.Doctor.User.name}
-                    </div>
-
-                    {/* <div className="formUpdateAppointment">
-                      <Form.Select 
-                        name={"doctor_id"}
-                        >
-                        <option>{profile.Doctor.User.name}</option>
-                        {doctors.map((doctor) => {
-                          return (
-                            <option key={doctor.id} value={doctor.id}>
-                              {doctor.name}
-                            </option>
-                          );
-                        })}
-                      </Form.Select>
-                    </div> */}
-                    <div className="appointmentsLines">Fecha y hora</div>
-                        <div className="appointmentsApi">
-                            {new Date(profile.data).toLocaleDateString()}&nbsp;&nbsp;&nbsp;
-                            {profile.time}
+                      <div className="newDate">
+                        <div className="appDate">
+                          <InputText
+                            type={"datetime-local"}
+                            name={"date"}
+                            state={setBody}
+                          />
                         </div>
-                    
-                        <div className="newDate">
-                            <div className="appDate">
-                                <InputText
-                                type={"date"}
-                                name={"date"}
-                                state={setBody}
-
-                                />
-                            </div>
-                            <div className="appTime">
-                                <InputText
-                                  type={"time"}
-                                  name={"time"}
-                                  state={setBody}
-
-                                />
-                            </div>
-                        </div>
-                    </div>
+                      </div>
+                    <div className="buttonsApp">
                     <div onClick={() => updateApp()} className="modificarCita">
                       Modificar cita
                     </div>
                     <div className="eliminarCita">Eliminar cita</div>
+                    </div>
+                    </div>
                   </>
                 );
               })

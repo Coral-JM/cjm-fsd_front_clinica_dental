@@ -46,7 +46,6 @@ export const getAppointmentsUser  = async (token) => {
     return res;
 }
 
-
 export const updateAppointment = async (body, token) => {
   let config = {
     headers: {
@@ -56,10 +55,6 @@ export const updateAppointment = async (body, token) => {
   console.log(body);
   return await axios.put(`${root}/users/myuser/updateProfile`, body, config);
 }
-
-
-
-
 
 export const getAllUsers = async (usersProfile) => {
     return await axios.get(`${root}/users/allusers`, usersProfile);
@@ -72,6 +67,13 @@ export const getAllAppointments  = async (appointments) => {
 export const searchAppointment = async (criteria) => {
     return await axios.get(`${root}/appointments/doctor/allappointments/?name=${criteria}`);
 }
-export const bookAppointment = async (user) => {
-    return await axios.post(`${root}/appointments/createappointments`, user)
+
+export const bookAppointment = async (body, token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+  };
+    console.log(body);
+    return await axios.post(`${root}/appointments/createappointment`, body, config)
   }

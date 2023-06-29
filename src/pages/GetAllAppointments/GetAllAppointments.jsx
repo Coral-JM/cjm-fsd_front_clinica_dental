@@ -70,8 +70,7 @@ export const AllAppointments = () => {
                                     <div className="nameAppointments">Paciente</div>
                                     <div className="nameGetAllAppointments">{profile.User.name}</div>
                                     <div className="nameAppointments">Fecha y hora</div>
-                                    <div className="nameGetAllAppointments">{new Date (profile.data).toLocaleDateString()}</div>
-                                    <div className="nameGetAllAppointments">{profile.time}</div>
+                                    <div className="nameGetAllAppointments">{new Date (profile.date).toLocaleDateString()}</div>
                                     <div className="nameAppointments">Doctora</div>
                                     <div className="nameGetAllAppointments">{profile.Doctor.User.name}</div>
                                     <div className="nameAppointments">Tratamiento</div>

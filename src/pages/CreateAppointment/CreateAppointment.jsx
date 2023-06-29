@@ -1,19 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./CreateAppointment.css";
 import { InputText } from "../../common/InputText/InputText";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import { bookAppointment } from "../../services/apiCalls";
-
+import { userData } from "../userSlice";
+import { useSelector } from "react-redux";
 
 export const CreateAppointment = () => {
 const navigate = useNavigate();
+const datos = useSelector(userData);
+const token = datos?.credentials?.token;
 
     const [infoAppointment, setInfoAppointment] = useState({
-      date: "",
+      
       service_id: "",
+      user_id: datos?.data?.user_id,
       doctor_id: "",
+      date: "",
     }); 
+    console.log("userData:", datos); 
     const [services, setServices] = useState([
       {
         id: 1,
@@ -38,18 +44,11 @@ const navigate = useNavigate();
         name: "Cristina Puig",
       },
     ]); 
-    const inputHandler = (e) => {
-      setInfoAppointment((prevState) => ({
-        ...prevState,
-        [e.target.name]: e.target.value,
-      }));
-    };
-    const checkError = (e) => {};
 
     const bookApp = () => {
-        bookAppointment(infoAppointment, user);
+        bookAppointment(infoAppointment, token);
         setTimeout(() => {
-          navigate("/createappointment");
+          navigate("/success");
         }, 500);
       };
 
@@ -61,7 +60,13 @@ const navigate = useNavigate();
           <div className="createAppointmentDesign">
             <Form.Select className="appointmentSelector"
                 name={"service_id"}
-                onChange={(e) => inputHandler(e)}
+                value={infoAppointment.service_id}
+                onChange={(e) =>
+                  setInfoAppointment({
+                    ...infoAppointment,
+                    service_id: e.target.value
+                  })
+                }
             >
                 <option>Selecciona un tratamiento</option>
                 {services.map((service) => {
@@ -74,8 +79,15 @@ const navigate = useNavigate();
             </Form.Select>
             <Form.Select className="doctorSelector"
                 name={"doctor_id"}
-                onChange={(e) => inputHandler(e)}
-                aria-label="Default select example"
+                value={infoAppointment.doctor_id}
+                onChange={(e) =>
+                  setInfoAppointment({
+                    ...infoAppointment,
+                    doctor_id: e.target.value
+                  })
+                }
+
+                
             >
                 <option>Selecciona una doctora</option>
                 {doctors.map((doctor) => {
@@ -91,10 +103,16 @@ const navigate = useNavigate();
               <InputText 
               type={"datetime-local"} 
               name={"date"} 
-              changeFunction={(e) => inputHandler(e)}
-              blurFunction={(e) => checkError(e)}/>
+              value={infoAppointment.date}
+              onChange={(e) =>
+                setInfoAppointment({
+                  ...infoAppointment,
+                  date: e.target.value
+                })
+              }
+              />
             </div>
-            <div onClick= {() => { bookApp() }}
+            <div onClick= {() => bookApp() }
             className="buttonCreateAppointment">Reserva tu cita</div>
           </div>
         </div>

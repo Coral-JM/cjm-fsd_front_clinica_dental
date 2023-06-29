@@ -42,9 +42,14 @@
     margin-bottom: 0.5em;
 
 }
+.buttonsApp{
+    display: flex;
+    margin: 1em;
+    justify-content: space-between;
+}
 .modificarCita, .eliminarCita {
     height: 3em;
-    width: 10em;
+    width: 9em;
     background-color: #15aabf;
     color: white;
     border-radius: 0.5em;
@@ -53,22 +58,17 @@
     align-items: center;
     font-size: 0.7em;
     cursor: pointer;
-    margin-bottom: 1em;
-    margin-top: 1em;
 }
 .modificarCita:hover, .eliminarCita:hover {
     transition: 0.3s;
     color: black;
 }
 
-.eliminarCita {
-    margin-bottom: 5em;
-}
 .boxInfo{
     border: white solid 0.1em;
     background-color: rgb(255, 255, 255, 0.2);
     padding: 0.2em;
-    margin-bottom: 0.3em;
+    margin-bottom: 2em;
 }
 .newDate {
     display: flex;
