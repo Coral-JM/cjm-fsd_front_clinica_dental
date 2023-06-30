@@ -4,8 +4,7 @@ import { userData } from "../userSlice";
 import { Container, Row, Col } from "react-bootstrap";
 import "./AppointmentsAsUser.css";
 import { getAppointmentsUser } from "../../services/apiCalls";
-import { InputText } from "../../common/InputText/InputText";
-import Form from "react-bootstrap/Form";
+// import { InputText } from "../../common/InputText/InputText";
 import { updateAppointment } from "../../services/apiCalls";
 import { useNavigate } from 'react-router-dom'
 
@@ -28,54 +27,46 @@ export const AppointmentsAsUser = () => {
     }
   }, [token]);
 
-  const updateApp = () => {
-    updateAppointment(body, token)
-      .then(() => {
-        setTimeout(() => {
-          navigate("/profile");
-        }, 1500);
-      })
-      .catch((error) => console.log(error));
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setBody((prevBody) => ({
+      ...prevBody,
+      [name]: value,
+    }));
   };
 
-  const [services, setServices] = useState([
-    {
-      id: 1,
-      name: "Exámen y limpieza dental",
-    },
-    {
-      id: 2,
-      name: "Tratamiento de restauración dental",
-    },
-    {
-      id: 3,
-      name: "Tratamiento de ortodoncia",
-    },
-  ]);
-  const [doctors, setDoctors] = useState([
-    {
-      id: 1,
-      name: "Ana Saddouki",
-    },
-    {
-      id: 2,
-      name: "Cristina Puig",
-    },
-  ]);
+const [editingAppointmentId, setEditingAppointmentId] = useState(null);
+
+const startEditingAppointment = (id) => {
+  setEditingAppointmentId(id);
+};
+
+const updateApp = () => {
+  updateAppointment(body, token, editingAppointmentId)
+    .then(() => {
+      // setTimeout(() => {
+        navigate("/profile");
+      // }, 1500);
+    })
+    
+    .catch((error) => console.log(error));
+}
+
 
   return (
     <Container>
       <Row>
         <Col>
-          <div className="appointmentsUserBody">
+          <div className="appointmentsUserBody" >
             <div className="appointmentsTittle">mis citas</div>
 
             {appointments?.length > 0 ? (
               appointments.map((profile) => {
                 
+                
                 return (
                   <>
-                    <div className="boxInfo">
+                    <div className="boxInfo" key={profile.id}>
                       <div className="appointmentsLines">Tratamiento</div>
                       <div className="appointmentsApi">
                         {profile.Service.name}
@@ -90,22 +81,22 @@ export const AppointmentsAsUser = () => {
                       <div className="appointmentsApi">
                         {new Date(profile.date).toLocaleString()}
                       </div>
-
-                      <div className="newDate">
-                        <div className="appDate">
-                          <InputText
-                            type={"datetime-local"}
-                            name={"date"}
-                            state={setBody}
-                          />
-                        </div>
-                      </div>
-                    <div className="buttonsApp">
-                    <div onClick={() => updateApp()} className="modificarCita">
+                      <div className="changeApp">¿Quieres modificar la fecha de la cita?</div>
+                      <div onClick={() => startEditingAppointment(profile.id)} className="modificarCita">
                       Modificar cita
                     </div>
-                    <div className="eliminarCita">Eliminar cita</div>
-                    </div>
+                      {/* <div className="newDate">
+                        <div className="appDate">
+                          <input
+                            type={"datetime-local"}
+                            name={"date"}
+                            onChange={handleInputChange}
+                            // disabled={!isAppSelected}
+                            disabled={editingAppointmentId !== profile.id}
+                            
+                          />
+                        </div>
+                      </div> */}
                     </div>
                   </>
                 );
