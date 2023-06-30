@@ -53,7 +53,7 @@ export const updateAppointment = async (body, token) => {
     },
   };
   console.log(body);
-  return await axios.put(`${root}/users/myuser/updateProfile`, body, config);
+  return await axios.put(`${root}/appointments/appointmentsasuser`, body, config);
 }
 
 export const getAllUsers = async (usersProfile) => {
@@ -75,5 +75,7 @@ export const bookAppointment = async (body, token) => {
     }
   };
     console.log(body);
-    return await axios.post(`${root}/appointments/createappointment`, body, config)
+    console.log(token);
+    let res =  await axios.post(`${root}/appointments/createappointment`, body, config)
+    return res;
   }

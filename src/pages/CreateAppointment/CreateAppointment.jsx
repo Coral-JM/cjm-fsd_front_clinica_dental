@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./CreateAppointment.css";
 import { InputText } from "../../common/InputText/InputText";
 import Form from "react-bootstrap/Form";
@@ -11,6 +11,8 @@ export const CreateAppointment = () => {
 const navigate = useNavigate();
 const datos = useSelector(userData);
 const token = datos?.credentials?.token;
+// console.log(token)
+
 
     const [infoAppointment, setInfoAppointment] = useState({
       
@@ -20,6 +22,7 @@ const token = datos?.credentials?.token;
       date: "",
     }); 
     console.log("userData:", datos); 
+    console.log(infoAppointment);
     const [services, setServices] = useState([
       {
         id: 1,
@@ -46,11 +49,14 @@ const token = datos?.credentials?.token;
     ]); 
 
     const bookApp = () => {
-        bookAppointment(infoAppointment, token);
-        setTimeout(() => {
-          navigate("/success");
-        }, 500);
+      console.log(infoAppointment);
+      bookAppointment(infoAppointment, token)
+
+          setTimeout(() => {
+            navigate("/");
+          }, 500);
       };
+
 
   return (
     <div className="container">
@@ -86,8 +92,6 @@ const token = datos?.credentials?.token;
                     doctor_id: e.target.value
                   })
                 }
-
-                
             >
                 <option>Selecciona una doctora</option>
                 {doctors.map((doctor) => {
@@ -100,19 +104,20 @@ const token = datos?.credentials?.token;
             </Form.Select>
 
             <div className="containerDate">
-              <InputText 
-              type={"datetime-local"} 
-              name={"date"} 
-              value={infoAppointment.date}
-              onChange={(e) =>
-                setInfoAppointment({
-                  ...infoAppointment,
-                  date: e.target.value
-                })
-              }
+
+              <input
+                type="datetime-local"
+                name="date"
+                value={infoAppointment.date}
+                onChange={(e) =>
+                  setInfoAppointment({
+                    ...infoAppointment,
+                    date: e.target.value
+                  })
+                }
               />
             </div>
-            <div onClick= {() => bookApp() }
+            <div onClick={()=>bookApp()}
             className="buttonCreateAppointment">Reserva tu cita</div>
           </div>
         </div>

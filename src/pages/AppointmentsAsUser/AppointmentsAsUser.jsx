@@ -7,9 +7,11 @@ import { getAppointmentsUser } from "../../services/apiCalls";
 import { InputText } from "../../common/InputText/InputText";
 import Form from "react-bootstrap/Form";
 import { updateAppointment } from "../../services/apiCalls";
+import { useNavigate } from 'react-router-dom'
 
 export const AppointmentsAsUser = () => {
   const [appointments, setAppointmentsUser] = useState([]);
+  const navigate = useNavigate();
   const [user] = useState({});
   const [body, setBody] = useState({});
   const datos = useSelector(userData);
