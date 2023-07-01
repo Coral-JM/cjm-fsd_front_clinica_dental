@@ -12,28 +12,6 @@ export const userSlice = createSlice({
     },
   },
   reducers: {
-    // login: (state, action) => {
-    //   let { payload } = action;
-    //   (state.credentials = {
-    //     token: payload.token,
-    //   }),
-    //     (state.data = {
-    //       name: payload.name,
-    //       id: payload.id
-    //     });
-    //     console.log("User data:", state.data);
-    // },
-    // logout: (state) => {
-    //   return {
-    //     ...state,
-    //     credentials: {
-    //       token: "",
-    //     },
-    //     data: {
-    //       name: "",
-    //     },
-    //   };
-    // },
       login: (state, action) => {
         const { token, name, userId } = action.payload;
         state.credentials.token = token;

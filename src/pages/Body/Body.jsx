@@ -30,7 +30,7 @@ export const Body = () => {
                 <Route path="/allusers" element={<AllUsers />}/>
                 <Route path="/allappointments" element={<AllAppointments />}/>
                 <Route path="/createappointment" element={<CreateAppointment />}/>
-                
+          
             </Routes>
         </>
      )

@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userData } from "../userSlice";
 import { Container, Row, Col } from "react-bootstrap";
 import "./AppointmentsAsUser.css";
-import { getAppointmentsUser } from "../../services/apiCalls";
-// import { InputText } from "../../common/InputText/InputText";
-import { updateAppointment } from "../../services/apiCalls";
-import { useNavigate } from 'react-router-dom'
+import { getAppointmentsUser, updateAppointment } from "../../services/apiCalls";
+import { useNavigate } from 'react-router-dom';
 
 export const AppointmentsAsUser = () => {
+  const [selectedAppointment, setSelectedAppointment] = useState(null);
   const [appointments, setAppointmentsUser] = useState([]);
   const navigate = useNavigate();
-  const [user] = useState({});
-  const [body, setBody] = useState({});
   const datos = useSelector(userData);
   const token = datos?.credentials?.token;
+  const [selectedAppointmentId, setSelectedAppointmentId] = useState(null);
+
+
 
   useEffect(() => {
-    if (user && appointments?.length === 0) {
+    if (appointments?.length === 0) {
       getAppointmentsUser(token)
         .then((res) => {
           setAppointmentsUser(res.data.data);
@@ -27,32 +27,26 @@ export const AppointmentsAsUser = () => {
     }
   }, [token]);
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setBody((prevBody) => ({
-      ...prevBody,
-      [name]: value,
-    }));
+  const updateApp = () => {
+    if (selectedAppointment) {
+      updateAppointment(selectedAppointment, token)
+        .then(() => {
+          setTimeout(() => {
+            navigate("/profile");
+          }, 1500);
+        })
+        .catch((error) => console.log(error));
+    }
   };
 
-const [editingAppointmentId, setEditingAppointmentId] = useState(null);
-
-const startEditingAppointment = (id) => {
-  setEditingAppointmentId(id);
-};
-
-const updateApp = () => {
-  updateAppointment(body, token, editingAppointmentId)
-    .then(() => {
-      // setTimeout(() => {
-        navigate("/profile");
-      // }, 1500);
-    })
-    
-    .catch((error) => console.log(error));
-}
-
-
+  const handleDateChange = (e, appointment) => {
+    const updatedAppointment = {
+      ...appointment,
+      date: e.target.value,
+    };
+    setSelectedAppointment(updatedAppointment);
+  };
+  
   return (
     <Container>
       <Row>
@@ -61,44 +55,49 @@ const updateApp = () => {
             <div className="appointmentsTittle">mis citas</div>
 
             {appointments?.length > 0 ? (
-              appointments.map((profile) => {
+              appointments.map((appointment) => {
                 
                 
                 return (
-                  <>
-                    <div className="boxInfo" key={profile.id}>
+                    <div className="boxInfo" key={appointment.id}>
                       <div className="appointmentsLines">Tratamiento</div>
                       <div className="appointmentsApi">
-                        {profile.Service.name}
+                        {appointment.Service.name}
                       </div>
-
                       <div className="appointmentsLines">Doctora</div>
                       <div className="appointmentsApi">
-                        {profile.Doctor.User.name}
+                        {appointment.Doctor.User.name}
                       </div>
-
                       <div className="appointmentsLines">Fecha y hora</div>
                       <div className="appointmentsApi">
-                        {new Date(profile.date).toLocaleString()}
+                        {new Date(appointment.date).toLocaleString()}
                       </div>
                       <div className="changeApp">¿Quieres modificar la fecha de la cita?</div>
-                      <div onClick={() => startEditingAppointment(profile.id)} className="modificarCita">
+
+                      <div className="newDate">
+                            <div className="appDate">
+                                <input
+                                type={"datetime-local"}
+                                name={"date"}
+                                value={
+                                  selectedAppointment?.id === appointment.id
+                                    ? selectedAppointment.date
+                                    : ""
+                                }
+                                onChange={(e) => handleDateChange(e, appointment)}
+                                />
+                            </div>
+                      </div>
+
+
+                      <div 
+                      onClick={()=> updateApp()}
+                      className="modificarCita"
+                      disabled={!selectedAppointment || selectedAppointment.id !== appointment.id}
+                      >
                       Modificar cita
+                      </div>
                     </div>
-                      {/* <div className="newDate">
-                        <div className="appDate">
-                          <input
-                            type={"datetime-local"}
-                            name={"date"}
-                            onChange={handleInputChange}
-                            // disabled={!isAppSelected}
-                            disabled={editingAppointmentId !== profile.id}
-                            
-                          />
-                        </div>
-                      </div> */}
-                    </div>
-                  </>
                 );
               })
             ) : (
