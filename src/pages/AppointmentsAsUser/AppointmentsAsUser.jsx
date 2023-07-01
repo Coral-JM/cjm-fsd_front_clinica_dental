@@ -29,7 +29,7 @@ export const AppointmentsAsUser = () => {
 
   const updateApp = () => {
     if (selectedAppointment) {
-      updateAppointment(selectedAppointment, token)
+      updateAppointment(selectedAppointment.id, selectedAppointment.date, token)
         .then(() => {
           setTimeout(() => {
             navigate("/profile");
@@ -38,7 +38,6 @@ export const AppointmentsAsUser = () => {
         .catch((error) => console.log(error));
     }
   };
-
   const handleDateChange = (e, appointment) => {
     const updatedAppointment = {
       ...appointment,
@@ -46,7 +45,8 @@ export const AppointmentsAsUser = () => {
     };
     setSelectedAppointment(updatedAppointment);
   };
-  
+
+
   return (
     <Container>
       <Row>
@@ -91,9 +91,9 @@ export const AppointmentsAsUser = () => {
 
 
                       <div 
-                      onClick={()=> updateApp()}
+                      onClick={updateApp} 
                       className="modificarCita"
-                      disabled={!selectedAppointment || selectedAppointment.id !== appointment.id}
+                      disabled={selectedAppointmentId !== appointment.id}
                       >
                       Modificar cita
                       </div>
