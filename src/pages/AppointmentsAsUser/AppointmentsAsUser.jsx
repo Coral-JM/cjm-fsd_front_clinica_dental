@@ -3,8 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { userData } from "../userSlice";
 import { Container, Row, Col } from "react-bootstrap";
 import "./AppointmentsAsUser.css";
-import { getAppointmentsUser, updateAppointment } from "../../services/apiCalls";
-import { useNavigate } from 'react-router-dom';
+import {
+  getAppointmentsUser,
+  updateAppointment,
+} from "../../services/apiCalls";
+import { useNavigate } from "react-router-dom";
 
 export const AppointmentsAsUser = () => {
   const [selectedAppointment, setSelectedAppointment] = useState([]);
@@ -13,8 +16,6 @@ export const AppointmentsAsUser = () => {
   const datos = useSelector(userData);
   const token = datos?.credentials?.token;
   const [selectedAppointmentId, setSelectedAppointmentId] = useState([]);
-
-
 
   useEffect(() => {
     if (appointments?.length === 0) {
@@ -62,51 +63,52 @@ export const AppointmentsAsUser = () => {
     <Container>
       <Row>
         <Col>
-          <div className="appointmentsUserBody" >
+          <div className="appointmentsUserBody">
             <div className="appointmentsTittle">mis citas</div>
 
             {appointments?.length > 0 ? (
               appointments.map((appointment) => {
-                
-                
                 return (
-                    <div className="boxInfo" key={appointment.id}>
-                      <div className="appointmentsLines">Tratamiento</div>
-                      <div className="appointmentsApi">
-                        {appointment.Service.name}
-                      </div>
-                      <div className="appointmentsLines">Doctora</div>
-                      <div className="appointmentsApi">
-                        {appointment.Doctor.User.name}
-                      </div>
-                      <div className="appointmentsLines">Fecha y hora</div>
-                      <div className="appointmentsApi">
-                        {new Date(appointment.date).toLocaleString()}
-                      </div>
-                      <div className="changeApp">¿Quieres modificar la fecha de la cita?</div>
+                  <div className="boxInfo" key={appointment.id}>
+                    <div className="appointmentsLines">Tratamiento</div>
+                    <div className="appointmentsApi">
+                      {appointment.Service.name}
+                    </div>
+                    <div className="appointmentsLines">Doctora</div>
+                    <div className="appointmentsApi">
+                      {appointment.Doctor.User.name}
+                    </div>
+                    <div className="appointmentsLines">Fecha y hora</div>
+                    <div className="appointmentsApi">
+                      {new Date(appointment.date).toLocaleString()}
+                    </div>
+                    <div className="changeApp">
+                      ¿Quieres modificar la fecha de la cita?
+                    </div>
 
-                      <div className="newDate">
-                            <div className="appDate">
-                                <input
-                                type={"datetime-local"}
-                                name={"date"}
-                                value={
-                                  selectedAppointmentId === appointment.id ? appointment.date : ""
-                                }
-                                onChange={(e) => handleDateChange(e, appointment.id)}
-                                />
-                            </div>
+                    <div className="newDate">
+                      <div className="appDate">
+                        <input
+                          type={"datetime-local"}
+                          name={"date"}
+                          value={
+                            selectedAppointmentId === appointment.id
+                              ? appointment.date
+                              : ""
+                          }
+                          onChange={(e) => handleDateChange(e, appointment.id)}
+                        />
                       </div>
+                    </div>
 
-
-                      <div 
+                    <div
                       onClick={() => updateApp(appointment.id)}
                       className="modificarCita"
                       disabled={selectedAppointmentId !== appointment.id}
-                      >
+                    >
                       Modificar cita
-                      </div>
                     </div>
+                  </div>
                 );
               })
             ) : (

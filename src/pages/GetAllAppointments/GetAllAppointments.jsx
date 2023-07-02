@@ -2,6 +2,7 @@ import React, { useEffect, useState }  from "react";
 import './GetAllAppointments.css';
 import { getAllAppointments, searchAppointment } from "../../services/apiCalls";
 import { InputText } from "../../common/InputText/InputText";
+import { Container, Row, Col } from 'react-bootstrap'
 
 export const AllAppointments = () => {
     const [appointments, setAppointments] = useState ([])
@@ -49,10 +50,10 @@ export const AllAppointments = () => {
     }
 
     return (
-        <div className="container">
-            <div className="row">
-            <div className="col">
-            <div className="tittle">todas las citas</div>
+            <Container>
+                <Row>
+                    <Col>
+                    <div className="tittle">todas las citas</div>
             <div className="searchInput"> 
               <InputText
                 type={"text"}
@@ -85,8 +86,11 @@ export const AllAppointments = () => {
                         <div className="loading">Cargando...</div>
                     )
                 }
-                </div>
-            </div>
-        </div>
+                    
+                    </Col>
+                </Row>
+            </Container>
+           
+
     )
 }
