@@ -43,9 +43,7 @@ export const UpdateProfile = () => {
     .catch((error) => console.log(error));
   }
   ;
-//FALTARÁ PONER QUE SI EL BODY ESTÁ VACÍO NO RECOJA EL DATO
-  
-  // console.log("Token:", token);
+
 
   return (
     <Container>

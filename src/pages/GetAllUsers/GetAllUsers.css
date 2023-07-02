@@ -1,3 +1,6 @@
+.allUsersDesign{
+    height: 90vh;
+}
 .getAllUsers{
     display: flex;
     flex-direction: column;

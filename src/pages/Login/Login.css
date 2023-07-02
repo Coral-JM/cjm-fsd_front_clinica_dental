@@ -1,6 +1,4 @@
 .loginDesign {
-
-    height: 100vh;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,10 +10,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 30em;
 
     font-family: monospace;
     font-size: 0.9em;
-
 }
 
 .errorText {

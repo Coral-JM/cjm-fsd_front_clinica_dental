@@ -13,6 +13,7 @@ import { AllUsers } from '../GetAllUsers/GetAllUsers';
 import { AllAppointments } from '../GetAllAppointments/GetAllAppointments';
 import { CreateAppointment } from '../CreateAppointment/CreateAppointment';
 import { Doctora } from '../DoctorProfile/DoctorProfile'
+import { Admin } from '../AdminProfile/AdminProfile'
 
 
 export const Body = () => {
@@ -31,6 +32,8 @@ export const Body = () => {
                 <Route path="/allappointments" element={<AllAppointments />}/>
                 <Route path="/createappointment" element={<CreateAppointment />}/>
                 <Route path="/doctora" element={<Doctora />}/>
+                <Route path="/admin" element={<Admin />}/>
+
           
             </Routes>
         </>

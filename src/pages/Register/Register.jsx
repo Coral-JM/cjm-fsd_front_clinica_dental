@@ -47,6 +47,7 @@ export const Register = () => {
 
   return (
     <div className='registerDesign'>
+      <div className="tittle">registro</div>
         <div>
           <div className="userSubmit">Nombre y apellido</div>
           <InputText

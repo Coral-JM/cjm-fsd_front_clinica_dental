@@ -47,7 +47,7 @@ export const Header = () => {
               {role === 3 && (
                 <div
                   className="userForms"
-                  onClick={() => navigate("/profile")}
+                  onClick={() => navigate("/admin")}
                 >
                   Admin
                 </div>

@@ -70,6 +70,7 @@ export const Login = () => {
       <Row>
         <Col>
           <div className="loginDesign">
+            <div className="tittle">login</div>
             {welcome !== "" ? (
               <div>{welcome}</div>
             ) : (

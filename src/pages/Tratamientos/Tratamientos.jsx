@@ -4,13 +4,16 @@ import Card from 'react-bootstrap/Card';
 import limpieza from '../../img/limpieza.jpg'
 import caries from '../../img/caries.jpg'
 import invisalign from '../../img/invisalign.jpg'
+import { Container, Row, Col } from 'react-bootstrap'
 
 
 
 export const Tratamientos = () => {
   return (
-    <div className="container">
-      <div className="row">
+    <Container>
+      <Row>
+        <Col>
+        
         <div className="tittle">( m i n t )</div>
           <div className="col treatmentsCards">
             <Card style={{ width: "20em", background: "transparent", border: "transparent"}}>
@@ -54,7 +57,10 @@ export const Tratamientos = () => {
               </Card.Body>
             </Card>
           </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
+
+
   );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState }  from "react";
 import './GetAllUsers.css';
 import { getAllUsers } from "../../services/apiCalls";
+import { Container, Row, Col } from "react-bootstrap"
 
 export const AllUsers = () => {
     const [usersProfile, setUsersProfile] = useState ([])
@@ -19,9 +20,11 @@ export const AllUsers = () => {
     }, [])
 
     return (
-        <div className="container">
-            <div className="row">
-            <div className="col">
+
+        <Container>
+            <Row>
+                <Col>
+                <div className="allUsersDesign">
             <div className="tittle">pacientes</div>
                 {getAllUsers.length > 0 
                     ? (
@@ -41,7 +44,10 @@ export const AllUsers = () => {
                     )
                 }
                 </div>
-            </div>
-        </div>
+                
+                </Col>
+            </Row>
+        </Container>
+
     )
 }
