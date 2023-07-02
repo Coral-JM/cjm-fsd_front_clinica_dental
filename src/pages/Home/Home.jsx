@@ -32,17 +32,12 @@ export const Home = () => {
                     <Card.Text style={{ fontSize:"1em"}} className='subtittleHome'>
                     ( m i n t ) es bienestar, belleza y cuidado. Un espacio donde cuidaremos de ti y de tu sonrisa.
                     </Card.Text>
-
-
                     <div style={{ fontSize:"1em", background: "#15aabf", border: "transparent", fontFamily: "monospace", margin: "1em"}} className='citaButton'
                     onClick={handleReservationClick}>Reserva tu cita</div>
-
-
-
-
                     </Card.Body>
                 </Card>
                 </Col>
+                <Col>
                 <div className="col d-flex justify-content-center">
                 <Card style={{ width: "25em", background: "transparent", border: "transparent"}}>
                     <Card.Body>
@@ -52,6 +47,7 @@ export const Home = () => {
                     </Card.Body>
                 </Card>
                 </div>
+                </Col>
             </Row>
         </Container>
     )

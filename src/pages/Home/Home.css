@@ -80,6 +80,11 @@
         margin-left: -6em;
     }
 }
+
+.cardOneHome{
+    display: flex;
+    justify-content: center;
+}
 .citaButton {
     height: 2em;
     width: 12em;
@@ -93,4 +98,16 @@
 .citaButton:hover{
     transition: 0.3s;
     color: black;
+}
+
+.titleHome{
+    font-family: "Billion";
+    font-size: 3em;
+    padding: 3em;
+    display: flex;
+    justify-content: center;
+}
+.iconsHome{
+    height: 15em;
+    width: 15em;
 }
