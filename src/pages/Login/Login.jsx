@@ -52,11 +52,13 @@ export const Login = () => {
   useEffect(() => {
     if (token) {
       let decoded = jwtDecode(token);
+      console.log("Role ID:"+  decoded.roleId)
       dispatch(
         login({
           token: token,
           name: decoded.name,
           userId: decoded.userId,
+          role_id: decoded.roleId,
         })
       );
       navigate("/");

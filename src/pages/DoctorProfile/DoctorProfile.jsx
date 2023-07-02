@@ -1,22 +1,21 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import './DoctorProfile.css'
 import {Container, Row, Col} from "react-bootstrap"
-import "./Profile.css";
 import { logout } from "../../pages/userSlice";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-
-export const Profile = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-    
+export const Doctora = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+      
     return (
         <Container>
-            <Row className="profileBody">
+            <Row className="doctoraDesign">
                 <Col>
-                <div className="profileTittle">( perfil de usuario )</div>
+                <div className="profileTittle">( doctora )</div>
                 <div onClick={()=>navigate("/updateProfile")} style= {{width:"24em"}}className="profileLines">Información del usuario</div>
-                <div onClick={()=>navigate("/appointmentsasuser")} style= {{width:"24em"}}className="profileLines">Mis citas</div> 
+                <div onClick={()=>navigate("/allappointments")} style= {{width:"24em"}}className="profileLines">Mis citas</div> 
                 <div onClick={()=>{
                   dispatch(logout()); 
                   navigate("/home")
@@ -24,5 +23,6 @@ export const Profile = () => {
                 </Col>
             </Row>
         </Container>
-    );
-};
+            
+      );
+  };

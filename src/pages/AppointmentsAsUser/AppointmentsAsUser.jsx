@@ -7,12 +7,12 @@ import { getAppointmentsUser, updateAppointment } from "../../services/apiCalls"
 import { useNavigate } from 'react-router-dom';
 
 export const AppointmentsAsUser = () => {
-  const [selectedAppointment, setSelectedAppointment] = useState(null);
+  const [selectedAppointment, setSelectedAppointment] = useState([]);
   const [appointments, setAppointmentsUser] = useState([]);
   const navigate = useNavigate();
   const datos = useSelector(userData);
   const token = datos?.credentials?.token;
-  const [selectedAppointmentId, setSelectedAppointmentId] = useState(null);
+  const [selectedAppointmentId, setSelectedAppointmentId] = useState([]);
 
 
 
@@ -27,9 +27,28 @@ export const AppointmentsAsUser = () => {
     }
   }, [token]);
 
-  const updateApp = () => {
+  const handleDateChange = (e, appointmentId) => {
+    setSelectedAppointmentId(appointmentId);
+    const updatedAppointments = appointments.map((appointment) => {
+      if (appointment.id === appointmentId) {
+        return {
+          ...appointment,
+          date: e.target.value,
+        };
+      }
+      return appointment;
+    });
+    setAppointmentsUser(updatedAppointments);
+  };
+
+  const updateApp = (appointmentId) => {
+    const selectedAppointment = appointments.find(
+      (appointment) => appointment.id === appointmentId
+    );
     if (selectedAppointment) {
-      updateAppointment(selectedAppointment.id, selectedAppointment.date, token)
+      const { id, date } = selectedAppointment;
+      console.log(id, date);
+      updateAppointment(id, date, token)
         .then(() => {
           setTimeout(() => {
             navigate("/profile");
@@ -38,14 +57,6 @@ export const AppointmentsAsUser = () => {
         .catch((error) => console.log(error));
     }
   };
-  const handleDateChange = (e, appointment) => {
-    const updatedAppointment = {
-      ...appointment,
-      date: e.target.value,
-    };
-    setSelectedAppointment(updatedAppointment);
-  };
-
 
   return (
     <Container>
@@ -80,18 +91,16 @@ export const AppointmentsAsUser = () => {
                                 type={"datetime-local"}
                                 name={"date"}
                                 value={
-                                  selectedAppointment?.id === appointment.id
-                                    ? selectedAppointment.date
-                                    : ""
+                                  selectedAppointmentId === appointment.id ? appointment.date : ""
                                 }
-                                onChange={(e) => handleDateChange(e, appointment)}
+                                onChange={(e) => handleDateChange(e, appointment.id)}
                                 />
                             </div>
                       </div>
 
 
                       <div 
-                      onClick={updateApp} 
+                      onClick={() => updateApp(appointment.id)}
                       className="modificarCita"
                       disabled={selectedAppointmentId !== appointment.id}
                       >

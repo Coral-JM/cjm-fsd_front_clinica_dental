@@ -9,6 +9,9 @@ export const Header = () => {
   const navigate = useNavigate();
   const datos = useSelector(userData);
   const isLogged = datos?.credentials?.token
+  const role = datos?.data?.role_id
+
+  console.log("Role ID:", role)
 
   return (
     <div className="headerDesign">
@@ -25,16 +28,32 @@ export const Header = () => {
 
           {isLogged ? (
             <>
-              <div
-                className="userForms"
-                onClick={() => {
-                  navigate("/profile");
-                }}
-              >
-                Perfil
-              </div>
+              {role === 1 && (
+                <div
+                  className="userForms"
+                  onClick={() => navigate("/profile")}
+                >
+                  Perfil
+                </div>
+              )}
+              {role === 2 && (
+                <div
+                  className="userForms"
+                  onClick={() => navigate("/doctora")}
+                >
+                  Doctora
+                </div>
+              )}
+              {role === 3 && (
+                <div
+                  className="userForms"
+                  onClick={() => navigate("/profile")}
+                >
+                  Admin
+                </div>
+              )}
             </>
-            ) : (
+          ) : (
             <div
               className="userForms"
               onClick={() => {
@@ -44,6 +63,8 @@ export const Header = () => {
               Login
             </div>
           )}
+
+
         </div>
       </div>
     </div>

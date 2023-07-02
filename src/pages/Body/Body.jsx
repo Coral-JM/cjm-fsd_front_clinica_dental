@@ -12,7 +12,7 @@ import { AppointmentsAsUser } from '../AppointmentsAsUser/AppointmentsAsUser';
 import { AllUsers } from '../GetAllUsers/GetAllUsers';
 import { AllAppointments } from '../GetAllAppointments/GetAllAppointments';
 import { CreateAppointment } from '../CreateAppointment/CreateAppointment';
-
+import { Doctora } from '../DoctorProfile/DoctorProfile'
 
 
 export const Body = () => {
@@ -30,6 +30,7 @@ export const Body = () => {
                 <Route path="/allusers" element={<AllUsers />}/>
                 <Route path="/allappointments" element={<AllAppointments />}/>
                 <Route path="/createappointment" element={<CreateAppointment />}/>
+                <Route path="/doctora" element={<Doctora />}/>
           
             </Routes>
         </>
