@@ -19,9 +19,17 @@ export const UpdateProfile = () => {
     if (user) {
       getProfile(token)
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           if (res.data && res.data.user) {
             setUser(res.data.user);
+            setBody(
+              {
+                name: res.data.user.name,
+                email: res.data.user.email,
+                password: res.data.user.password
+              }
+            )
+
           }
         })
         .catch((error) => {

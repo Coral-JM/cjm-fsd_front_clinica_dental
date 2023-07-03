@@ -1,63 +1,61 @@
 import React, { useEffect, useState } from "react";
 import "./GetAllAppointments.css";
-import { getAllAppointments, searchAppointment } from "../../services/apiCalls";
+import { getAllAppointments} from "../../services/apiCalls";
 import { InputText } from "../../common/InputText/InputText";
 import { Container, Row, Col } from "react-bootstrap";
 
 export const AllAppointments = () => {
   const [appointments, setAppointments] = useState([]);
-  const [criteria, setCriteria] = useState("");
+
+  const [filteredAppointments, setFilteredAppointments] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     if (appointments.length === 0) {
+
       getAllAppointments()
         .then((resultado) => {
+
           setAppointments(resultado.data.data);
           console.log(resultado.data.data);
         })
         .catch((error) => console.log(error));
     }
-  }, [appointments]);
+  }, []);
 
   useEffect(() => {
-    if (criteria.length > 0) {
-      const bring = setTimeout(() => {
-        searchAppointment(criteria)
-          .then((resultado) => {
-            console.log("He buscado");
-            console.log(resultado.data.data);
-            setAppointments(resultado.data.data);
-          })
-          .catch((error) => console.log(error));
-      }, 350);
-
-      return () => clearTimeout(bring);
-    } else if (criteria === "") {
-      getAllAppointments()
-        .then((resultados) => {
-          setAppointments(resultados.data.data);
-        })
-        .catch((error) => console.log(error));
+    if (searchText.trim() === "") {
+      setFilteredAppointments(appointments);
+    } else {
+      const filtered = appointments.filter((appointment) => {
+        const userName = appointment.User.name.toLowerCase();
+        return userName.includes(searchText.toLowerCase());
+      });
+      setFilteredAppointments(filtered);
     }
-  }, [criteria]);
+  }, [searchText, appointments]);
+
+  const handleSearch = (e) => {
+    setSearchText(e.target.value);
+  };
 
 
   return (
-    <Container>
+    <Container className="appDoctorDesign">
       <Row>
         <Col>
           <div className="tittle">todas las citas</div>
-          <div className="searchInput">
-            <InputText
+          <div className="appDesign">
+            <input className="searchInput"
               type={"text"}
-              design={"normalInput"}
+              // design={"searchInput"}
               placeholder={"Busca una cita..."}
-              name={"criteria"}
-              state={setCriteria}
+              onChange={handleSearch}
             />
-          </div>
-          {appointments.length > 0 ? (
-            appointments.map((profile, index) => {
+
+
+             {filteredAppointments.length > 0 ? (
+              filteredAppointments.map((profile, index) => {
               return (
                 <div className="getAllAppointments" key={index}>
                   <div className="nameAppointments">Paciente</div>
@@ -80,12 +78,18 @@ export const AllAppointments = () => {
                   <div className="nameGetAllAppointments">
                     {profile.Service.price}
                   </div>
+                  <div className="nameAppointments">Estado</div>
+                  <div className="nameGetAllAppointments">
+                    {profile.comments}
+                  </div>
                 </div>
+                
               );
             })
           ) : (
             <div className="loading" key="loading">Cargando...</div>
           )}
+          </div>
         </Col>
       </Row>
     </Container>

@@ -12,7 +12,7 @@ export const AllUsers = () => {
             getAllUsers(usersProfile)
                 .then((resultado) => {
                     setUsersProfile(resultado.data.data)
-                    console.log(resultado.data.data);
+                    // console.log(resultado.data.data);
 
                 })
                 .catch((error) => console.log(error))

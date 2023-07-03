@@ -52,7 +52,7 @@ export const Login = () => {
   useEffect(() => {
     if (token) {
       let decoded = jwtDecode(token);
-      console.log("Role ID:"+  decoded.roleId)
+      // console.log("Role ID:"+  decoded.roleId)
       dispatch(
         login({
           token: token,

@@ -1,3 +1,15 @@
+.appDoctorDesign{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.appDesign{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10em;
+}
 .getAllAppointments{
     display: flex;
     flex-direction: column;
@@ -27,5 +39,9 @@
     justify-content: center;
     margin-bottom: 2em;
     font-family: monospace;
+    width: 20em;
+    border-radius: 0.3em;
+    height: 2.2em;
+    border: solid black 0.1em;
 }
 

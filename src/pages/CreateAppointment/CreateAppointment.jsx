@@ -19,8 +19,8 @@ export const CreateAppointment = () => {
     doctor_id: "",
     date: "",
   });
-  console.log("userData:", datos);
-  console.log(infoAppointment);
+  // console.log("userData:", datos);
+  // console.log(infoAppointment);
   const [services, setServices] = useState([
     {
       id: 1,
@@ -47,7 +47,7 @@ export const CreateAppointment = () => {
   ]);
 
   const bookApp = () => {
-    console.log(infoAppointment);
+    // console.log(infoAppointment);
     bookAppointment(infoAppointment, token);
 
     setTimeout(() => {

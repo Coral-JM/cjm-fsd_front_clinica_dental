@@ -22,7 +22,7 @@ export const AppointmentsAsUser = () => {
       getAppointmentsUser(token)
         .then((res) => {
           setAppointmentsUser(res.data.data);
-          console.log(res);
+          // console.log(res);
         })
         .catch((error) => console.log(error));
     }
@@ -48,7 +48,7 @@ export const AppointmentsAsUser = () => {
     );
     if (selectedAppointment) {
       const { id, date } = selectedAppointment;
-      console.log(id, date);
+      // console.log(id, date);
       updateAppointment(id, date, token)
         .then(() => {
           setTimeout(() => {

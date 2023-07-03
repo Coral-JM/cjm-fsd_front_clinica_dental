@@ -11,7 +11,7 @@ export const Header = () => {
   const isLogged = datos?.credentials?.token
   const role = datos?.data?.role_id
 
-  console.log("Role ID:", role)
+  // console.log("Role ID:", role)
 
   return (
     <div className="headerDesign">
