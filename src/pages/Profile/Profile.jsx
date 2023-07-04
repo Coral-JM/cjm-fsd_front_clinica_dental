@@ -17,6 +17,7 @@ export const Profile = () => {
                 <div className="profileTittle">( perfil de usuario )</div>
                 <div onClick={()=>navigate("/updateProfile")} style= {{width:"24em"}}className="profileLines">Información del usuario</div>
                 <div onClick={()=>navigate("/appointmentsasuser")} style= {{width:"24em"}}className="profileLines">Mis citas</div> 
+                <div onClick={()=>navigate("/createappointment")} style= {{width:"24em"}}className="profileLines">Nueva cita</div>
                 <div onClick={()=>{
                   dispatch(logout()); 
                   navigate("/home")
