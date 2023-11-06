@@ -16,7 +16,9 @@
 
 #### Proyecto
 
-Este proyecto consistía construir un frontend para una clínica dental, además de ser completamente funcional debía estar conectada a nuestro proyecto de backend anterior. El frontend debía cumplir con los requisitos y las funcionalidades que le habíamos dado a nuestra API: la posibilidad de registrarse como nuevo cliente, loggearte, poder pedir una cita o modificar una existente, así cómo la necesidad de tener una vista para distintos roles, en este caso: Paciente, Doctor o Administrador, cada cuál con sus distintas funcionalidades dentro del frontend. 
+Este proyecto consistía construir un frontend para una clínica dental, además de ser completamente funcional debía estar conectada a nuestro proyecto de backend anterior. El frontend debía cumplir con los requisitos y las funcionalidades que le habíamos dado a nuestra API: la posibilidad de registrarse como nuevo cliente, loggearte, poder pedir una cita o modificar una existente, así cómo la necesidad de tener una vista para distintos roles, en este caso: Paciente, Doctor o Administrador, cada cuál con sus distintas funcionalidades dentro del frontend.
+
+Échale un vistazo a mi backend: [( M I N T )](https://github.com/Coral-JM/cjm_fsd_backend_clinica_dental)
 
 ---
 #### Stack 
